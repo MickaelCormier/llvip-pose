@@ -1,0 +1,10 @@
+data/
+/__pycache__/
+*.egg_info
+*.pth
+*.json
+runs/
+.mim/
+*.jpg
+*.png
+work_dirs/
