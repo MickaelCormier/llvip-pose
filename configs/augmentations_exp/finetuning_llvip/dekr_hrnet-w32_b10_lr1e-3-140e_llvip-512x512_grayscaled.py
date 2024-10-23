@@ -107,7 +107,7 @@ find_unused_parameters = True
 # base dataset settings
 dataset_type = "LLVIPDataset"
 data_mode = "bottomup"
-data_root = "data/llvip"
+data_root = "data/llvip/"
 
 # pipelines
 train_pipeline = [
@@ -153,7 +153,7 @@ train_dataloader = dict(
         data_root=data_root,
         data_mode=data_mode,
         ann_file="annotations/train_llvip.json",
-        data_prefix=dict(img="infrared/"),
+        data_prefix=dict(img="infrared/train/"),
         pipeline=train_pipeline,
     ),
 )
@@ -168,7 +168,7 @@ val_dataloader = dict(
         data_root=data_root,
         data_mode=data_mode,
         ann_file="annotations/finetuning/test_llvip_finetuning_13_kpts.json",
-        data_prefix=dict(img="infrared/"),
+        data_prefix=dict(img="infrared/test/"),
         test_mode=True,
         pipeline=val_pipeline,
     ),

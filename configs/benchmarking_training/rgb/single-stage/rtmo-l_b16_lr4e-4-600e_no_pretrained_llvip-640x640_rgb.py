@@ -115,14 +115,14 @@ val_pipeline = [
 ]
 
 data_mode = "bottomup"
-data_root = "data/llvip"
+data_root = "data/llvip/"
 # train datasets
 dataset_llvip = dict(
     type="LLVIPDataset",
     data_root=data_root,
     data_mode=data_mode,
     ann_file="annotations/train_llvip.json",
-    data_prefix=dict(img="visible/"),
+    data_prefix=dict(img="visible/train/"),
     pipeline=train_pipeline_stage1,
 )
 
@@ -147,7 +147,7 @@ val_dataloader = dict(
         data_root=data_root,
         data_mode=data_mode,
         ann_file="annotations/test_llvip.json",
-        data_prefix=dict(img="visible/"),
+        data_prefix=dict(img="visible/test/"),
         test_mode=True,
         pipeline=val_pipeline,
     ),

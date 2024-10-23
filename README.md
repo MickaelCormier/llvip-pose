@@ -4,11 +4,11 @@
 This is the official PyTorch implementation of the paper *"[Leveraging Thermal Imaging for Robust Human Pose Estimation in Low-Light Vision](https://sites.google.com/view/awss2024/accueil)"* (ACCVW 2024).
 
 
-Human Pose Estimation (HPE) is becoming increasingly ubiquitous, finding applications in diverse fields such as surveillance and worker safety, healthcare, sport and entertainment. Despite substantial research in HPE within the visible domain, there is limited focus on thermal imaging for HPE, primarily due to the scarcity and annotation difficulty of thermal data. Thermal imaging offers significant advantages, including better performance in low-light conditions and enhanced privacy, which can lead to greater acceptance of monitoring systems. In this work, we introduce LLVIP-Pose, an extension of the existing LLVIP dataset, to include 2D single-image pose estimation for aligned night-time RGB and thermal images, containing approximately 26k annotated skeletons. We detail our annotation process and propose a novel metric for identifying and correcting poorly annotated skeletons. Furthermore, we present a comprehensive benchmark of top-down, bottom-up, and single-stage pose estimation models evaluated on both RGB and thermal images. Our evaluations demonstrate how pre-training on grayscale COCO data with data augmentation can benefit thermal pose estimation. The LLVIP-Pose dataset addresses the lack of thermal HPE datasets, providing a valuable resource for future research in this area.
+Human Pose Estimation (HPE) is becoming increasingly ubiquitous, finding applications in diverse fields such as surveillance and worker safety, healthcare, sports and entertainment. Despite substantial research in HPE within the visible domain, there is limited focus on thermal imaging for HPE, primarily due to the scarcity and annotation difficulty of thermal data. Thermal imaging offers significant advantages, including better performance in low-light conditions and enhanced privacy, which can lead to greater acceptance of monitoring systems. In this work, we introduce LLVIP-Pose, an extension of the existing LLVIP dataset, to include 2D single-image pose estimation for aligned night-time RGB and thermal images, containing approximately 26k annotated skeletons. We detail our annotation process and propose a novel metric for identifying and correcting poorly annotated skeletons. Furthermore, we present a comprehensive benchmark of top-down, bottom-up, and single-stage pose estimation models evaluated on both RGB and thermal images. Our evaluations demonstrate how pre-training on grayscale COCO data with data augmentation can benefit thermal pose estimation. The LLVIP-Pose dataset addresses the lack of thermal HPE datasets, providing a valuable resource for future research in this area.
 
-## Installation:
+## Installation
 
-Clone the repository and run the following command to install PyTorch, MMPose and MMDet within a conda enviroment.
+Clone the repository and run the following command to install PyTorch, MMPose and MMDet within a conda environment.
 
 ```
 source tools/install_conda.sh
@@ -16,10 +16,10 @@ source tools/install_conda.sh
 
 ## Data Preparation
 
-Download the LLVIP images from the *"[LLVIP Website](https://bupt-ai-cz.github.io/LLVIP/)"*
-Downdload the LLVIP-Pose from the *"[LLVIP-Pose Release](https://github.com/MickaelCormier/llvip-pose/releases/)"*
+Download the LLVIP images from the *"[LLVIP Website](https://bupt-ai-cz.github.io/LLVIP/)"*.
+Download the LLVIP-Pose from the *"[LLVIP-Pose Release](https://github.com/MickaelCormier/llvip-pose/releases/)"*.
 
-Once dowloaded, please organise the data in the data/ directory as follows.
+Once downloaded, please organise the data in the data/ directory as follows.
 
 ```
 |-data
@@ -43,6 +43,7 @@ Once dowloaded, please organise the data in the data/ directory as follows.
             |- .......jpg
             |- 260536.jpg
 ```
+For the finetuning experiments, you also require the COCO Dataset.
 
 ## Training
 
@@ -52,6 +53,7 @@ For training:
 python tools/train.py <config-file> --amp
 ```
 
+For finetuning experiments, replace `load_from = ""` in the config file with the path to your Model trained on COCO.
 ## Testing 
 
 For testing:
@@ -74,12 +76,12 @@ If you are using our dataset for your research, please cite our paper.
 ```
 Since LLVIP-Pose Dataset uses the images from LLVIP Dataset, please cite their work as well.
 ```
-@inproceedings{jia2021llvip,
-title={LLVIP: A visible-infrared paired dataset for low-light vision},
-author={Jia, Xinyu and Zhu, Chuang and Li, Minzhen and Tang, Wenqi and Zhou, Wenli},
-booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
-pages={3496--3504},
-year={2021}
+@InProceedings{jia2021llvip,
+    author    = {Jia, Xinyu and Zhu, Chuang and Li, Minzhen and Tang, Wenqi and Zhou, Wenli},
+    title     = {LLVIP: A visible-infrared paired dataset for low-light vision},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},
+    pages     = {3496--3504},
+    year      = {2021}
 }
 ```
 
